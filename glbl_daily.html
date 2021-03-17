@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script><meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;margin: 0; padding: 0;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+<div class="slideshow-container">
+
+    <div>
+      <iframe  src="https://docs.google.com/presentation/d/e/2PACX-1vTBNErHqUm5gGWUPgU7DvardfMDgwOqic3FgQOp4A2oERmvoYVjojc1C-ZrlsU-lCAIi_3K5MqX05Nh/embed?start=true&loop=true&delayms=15000&rm=minimal" frameborder="0" width="99%" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    </div>
+</div>
+
+<script>
+  
+setInterval(function() {
+
+    $.ajax({ 
+        url  : "/img1.jpg", /* or other resource */
+        type : "HEAD",
+              cache: false,
+
+          statusCode: {
+        200: function() {
+      console.log( "online200");
+          location.reload(1);
+    },
+        304: function() {
+      console.log( "online304");
+          location.reload(1);
+    },
+        404: function() {
+      console.log( "page not found");
+    }
+    }
+    });
+}, 1200000); /* 1000 ~> 1 sec, 1800000 30 mins */
+</script>
+
+</body>
+</html>
