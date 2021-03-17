@@ -102,9 +102,33 @@ img {vertical-align: middle;}
       <iframe  src="https://docs.google.com/presentation/d/e/2PACX-1vQC49S-6P5AL_S1XwcKZieUGIpi77nW-VVXgSijzh4uCmgRIDjY6BS8v-6KUyk1FqmaqFuXum1GHcj9/embed?start=true&loop=true&delayms=15000&rm=minimal" frameborder="0" width="99%" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 </div>
+  
+  
+<script>
+  
+setInterval(function() {
 
+    $.ajax({ 
+        url  : "/index.html", /* or other resource */
+        type : "HEAD",
+              cache: false,
 
-<br>
+          statusCode: {
+        200: function() {
+      console.log( "online200");
+          location.reload(1);
+    },
+        304: function() {
+      console.log( "online304");
+          location.reload(1);
+    },
+        404: function() {
+      console.log( "page not found");
+    }
+    }
+    });
+}, 1200000); /* 1000 ~> 1 sec, 1200000 20 mins */
+</script>
 
 </body>
 </html>
