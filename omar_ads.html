@@ -109,17 +109,13 @@ img {vertical-align: middle;}
 setInterval(function() {
 
     $.ajax({ 
-        url  : "/index.html", /* or other resource */
+        url  : "/omar_ads.html", /* or other resource */
         type : "HEAD",
               cache: false,
 
           statusCode: {
         200: function() {
       console.log( "online200");
-          location.reload(1);
-    },
-        304: function() {
-      console.log( "online304");
           location.reload(1);
     },
         404: function() {
